@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>TapNova</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+
+  <!-- التبويبات -->
+  <div id="navbar">
+    <button onclick="switchTab('home')">🏠</button>
+    <button onclick="switchTab('click')">🕹️</button>
+    <button onclick="switchTab('tasks')">📋</button>
+    <button onclick="switchTab('top')">🏆</button>
+    <button onclick="switchTab('profile')">📘</button>
+    <button onclick="switchTab('ref')">📨</button>
+  </div>
+
+  <!-- الأقسام -->
+  <div id="section-home" class="section active">
+    <h2>🚀 أهلاً بك في TapNova</h2>
+    <p>ابدأ النقر، اكسب nova، وكن من المتصدرين!</p>
+  </div>
+
+  <div id="section-click" class="section">
+    <h3>🕹️ منطقة النقر</h3>
+    <button onclick="startClick()">ابدأ النقر</button>
+    <div id="click-area" style="display:none;">
+      <p>⏳ الوقت المتبقي: <span id="timer"></span></p>
+      <button onclick="doClick()">🔘 نقر!</button>
+    </div>
+  </div>
+
+  <div id="section-tasks" class="section">
+    <h3>📋 المهام اليومية</h3>
+    <button onclick="dailyLogin()">🎁 استلام مكافأة اليوم</button>
+    <p id="daily-status"></p>
+    <div id="follow-tasks"></div>
+  </div>
+
+  <div id="section-top" class="section">
+    <h3>🏆 قائمة المتصدرين</h3>
+    <div id="top-three"></div>
+    <ul id="top-list"></ul>
+  </div>
+
+  <div id="section-profile" class="section">
+    <h3>📘 حسابي</h3>
+    <p id="profile-name"></p>
+    <p id="profile-nova"></p>
+    <p id="profile-rank"></p>
+    <p id="profile-streak"></p>
+    <p id="profile-click"></p>
+  </div>
+
+  <div id="section-ref" class="section">
+    <h3>📨 الإحالة</h3>
+    <p>شارك هذا الرابط مع أصدقائك:</p>
+    <p id="ref-link" style="word-break: break-all;"></p>
+    <p id="ref-count"></p>
+    <ul id="ref-list"></ul>
+  </div>
+
+  <!-- مؤثر بصري -->
+  <div id="popup-success" class="popup" style="display:none;">
+    <div class="popup-content">
+      <h2 id="popup-title">🎉 مبروك!</h2>
+      <p id="popup-text">لقد حصلت على 1000 nova</p>
+      <button onclick="closeSuccess()">✅ حسنًا</button>
+    </div>
+  </div>
+
+  <script src="/static/main.js"></script>
+</body>
+</html>
